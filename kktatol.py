@@ -37,7 +37,7 @@ def getDataFromKKT(param):
 		fptr.setParam(IFptr.LIBFPTR_PARAM_DATA_TYPE, IFptr.LIBFPTR_DT_SERIAL_NUMBER)
 		fptr.queryData()
 		print(fptr.getParamString(IFptr.LIBFPTR_PARAM_SERIAL_NUMBER))
-	# РН ККТ
+	# РН_ККТ
 	if param == "2":
 		fptr.setParam(IFptr.LIBFPTR_PARAM_FN_DATA_TYPE, IFptr.LIBFPTR_FNDT_REG_INFO)
 		fptr.fnQueryData()
@@ -67,6 +67,14 @@ def getDataFromKKT(param):
 		fptr.setParam(IFptr.LIBFPTR_PARAM_DATA_TYPE, IFptr.LIBFPTR_DT_STATUS)
 		fptr.queryData()
 		print(fptr.getParamString(IFptr.LIBFPTR_PARAM_UNIT_VERSION))
+	# перезагрузить ККТ
+	if param == "8":
+		# fptr.setParam(IFptr.LIBFPTR_PARAM_PRINT_REPORT)
+		# fptr.queryData()
+		fptr.deviceReboot()
+		# fptr.setParam(IFptr.LIBFPTR_PARAM_DATA_TYPE, IFptr.LIBFPTR_DT_STATUS)
+		# fptr.queryData()
+		# print(fptr.getParamString(IFptr.LIBFPTR_PARAM_UNIT_VERSION))
 
 
 def main():
